@@ -42,3 +42,38 @@ for (let i = b.length - 1; i >= 0; i--) {
     reversed.push(b[i]);
 }
 console.log(`Reversed list: ${reversed}`);
+
+//preoblem 6 : Find palindrome in a list
+let n = ['a', 'b', 'b', 'a'];
+let ReverseList = [];
+for (let i = n.length - 1; i >= 0; i--) {
+    ReverseList.push(n[i]);
+}
+if (n.toString() === ReverseList.toString()) {
+    console.log(`${n} is a palindrome`);
+} else {
+    console.log(`${n} is not a palindrome`);
+}
+
+
+// Flatten a list
+function myFlatten(arr) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+
+        if (Array.isArray(arr[i])) {
+            // If element is an array → flatten it again
+            result = result.concat(myFlatten(arr[i]));
+        } else {
+            // If normal value → add directly
+            result.push(arr[i]);
+        }
+
+    }
+
+    return result;
+}
+
+let input = ['a', ['b', ['c', 'd'], 'e']];
+console.log(myFlatten(input));
